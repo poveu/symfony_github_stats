@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <title>{% block title %}Repos data{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+
+        <div class="repo-data">
+            <div class="table-container">
+                {% if data %}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{data[0].name}}</td>
+                                <td>{{data[1].name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Forks</td>
+                                {% for currentNode in data %}
+                                    <td>
+                                        {{currentNode.forks_count['value']}}
+                                        {% if currentNode.forks_count['difference']['value'] != 0 %}
+                                            <span class="difference {{currentNode.forks_count['difference']['type']}}">
+                                                {{currentNode.forks_count['difference']['value']}}
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Stars</td>
+                                {% for currentNode in data %}
+                                    <td>
+                                        {{currentNode.stargazers_count['value']}}
+                                        {% if currentNode.stargazers_count['difference']['value'] != 0 %}
+                                            <span class="difference {{currentNode.stargazers_count['difference']['type']}}">
+                                                {{currentNode.stargazers_count['difference']['value']}}
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>Watchers</td>
+                                {% for currentNode in data %}
+                                    <td>
+                                        {{currentNode.subscribers_count['value']}}
+                                        {% if currentNode.subscribers_count['difference']['value'] != 0 %}
+                                            <span class="difference {{currentNode.subscribers_count['difference']['type']}}">
+                                                {{currentNode.subscribers_count['difference']['value']}}
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+
+                            </tr>
+                            <tr>
+                                <td>Last release date</td>
+                                <td>{{data[0].latest_release.published_at}}</td>
+                                <td>{{data[1].latest_release.published_at}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}

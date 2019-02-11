@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <title>{% block title %}Hi!{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+        <div class="App">
+            <div class="box">
+            <h1>GitHub Repositories Stats</h1>
+            
+            {% include 'view/form.html.twig' %}
+            
+            </div>
+            
+            {% if number %}
+                <div class="box">
+                    <p>Your lucky number is <span>{{ number }}</span></p>
+                </div>
+            {% endif %}
+
+        </div>
+
+    {% endblock %}
+{% endblock %}
