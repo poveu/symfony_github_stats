@@ -81,8 +81,8 @@ export default class Form extends Component {
                     Correct format is <span>owner/repo_name</span> or <span>https://github.com/owner/repo_name</span>.
                 </p>
                 <div className="inputs">
-                    <input type="text" name="firstRepo" placeholder="np.: poveu/IPS" value={this.state.firstRepo} onChange={(event) => this.updateInputValue(event, 1)} onKeyPress={this.handleKeyPress}></input>
-                    <input type="text" name="secondRepo" placeholder="np.: poveu/symfony_github_stats" value={this.state.secondRepo} onChange={(event) => this.updateInputValue(event, 2)} onKeyPress={this.handleKeyPress}></input>
+                    <input type="text" name="firstRepo" placeholder="e.g.: poveu/IPS" value={this.state.firstRepo} onChange={(event) => this.updateInputValue(event, 1)} onKeyPress={this.handleKeyPress}></input>
+                    <input type="text" name="secondRepo" placeholder="e.g.: poveu/symfony_github_stats" value={this.state.secondRepo} onChange={(event) => this.updateInputValue(event, 2)} onKeyPress={this.handleKeyPress}></input>
                 </div>
                 <button className="compare-button" onClick={this.getReposData}>Compare repositories</button>
             </div>
