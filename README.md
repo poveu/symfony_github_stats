@@ -30,4 +30,4 @@ yarn install
 yarn encore dev
 ```
 
-### Live demo available [here](https://paveart.pl/github/symfony_github_stats/public/)
+### Live demo available [here](https://github-stats.poveu.pl)
